@@ -1,14 +1,15 @@
-# Nlacha-Aka Restaurant & Bar — Website
+# Mama Africa Bukka Hub & Sports Bar — Website
 
-A fully responsive, single-page website for **Nlacha-Aka Restaurant & Bar**, an authentic Nigerian native cuisine destination in Garki, Abuja.
+A fully responsive, single-page website for **Mama Africa Bukka Hub & Sports Bar**, an authentic Nigerian bukka, bakery and match-day sports bar in Ogombo, Ajah, Lagos.
 
 Built with semantic HTML5, Tailwind CSS (via CDN), and vanilla JavaScript — no build step, no dependencies to install.
 
 ## Features
 
 - Immersive hero section with parallax background
-- Filterable digital menu (Native Soups, Delicacies & Small Chops, Grills & Barbecue, Rice & Porridge)
-- Bar & Drinks showcase
+- Filterable digital menu (Native Soups & Swallow, Bush Meat & Peppersoup Specials, Delicacies & Small Chops, Grills & Bush Bar Specials, Rice & Sides)
+- Mama Africa Bread bakery showcase (sardine bread, meat pies, cakes, pastries)
+- The Bush Bar & Sports Lounge section — drinks menu built for match day
 - Frontend cart drawer with Pickup/Dine-in toggle and WhatsApp checkout
 - Table reservation form that hands off to WhatsApp with prefilled booking details
 - Heritage/story section, gallery with lightbox, testimonials carousel
@@ -18,12 +19,12 @@ Built with semantic HTML5, Tailwind CSS (via CDN), and vanilla JavaScript — no
 ## Project Structure
 
 ```
-nlacha-aka-restaurant/
+mama-africa-bukka-hub/
 ├── index.html              # Single-page site (all sections)
 ├── assets/
 │   ├── css/style.css       # Custom styles, animations, components
 │   ├── js/main.js          # Menu data, cart, reservations, interactivity
-│   └── images/             # Client photos (logo, dishes)
+│   └── images/             # Logo and dish photos
 └── README.md
 ```
 
@@ -36,19 +37,19 @@ Open the folder in VS Code, install the "Live Server" extension, right-click `in
 
 **Option B — Python**
 ```bash
-cd nlacha-aka-restaurant
+cd mama-africa-bukka-hub
 python -m http.server 8080
 ```
 Then open `http://localhost:8080` in your browser.
 
 **Option C — Node**
 ```bash
-npx serve nlacha-aka-restaurant
+npx serve mama-africa-bukka-hub
 ```
 
 ## Editing the Menu
 
-All menu items, drinks, gallery entries, and testimonials live as plain data arrays at the top of `assets/js/main.js` (`MENU`, `DRINKS`, `GALLERY`, `TESTIMONIALS`). Add, remove, or edit an item by editing its object — the page re-renders automatically, no other code changes needed.
+All menu items, drinks, bakery items, gallery entries, and testimonials live as plain data arrays at the top of `assets/js/main.js` (`MENU`, `DRINKS`, `BAKERY`, `GALLERY`, `TESTIMONIALS`). Add, remove, or edit an item by editing its object — the page re-renders automatically, no other code changes needed.
 
 Menu items without a real photo (`img`) fall back to a branded placeholder card using an `icon` (emoji) — replace `icon` with `img: IMG("your-file.jpeg")` once a real photo is available in `assets/images/`.
 

@@ -1,75 +1,97 @@
 // ============================================================
-// Nlacha-Aka Restaurant & Bar — Site Logic
+// Mama Africa Bukka Hub & Sports Bar — Site Logic
 // ============================================================
 
-const WHATSAPP_NUMBER = "2349011558607";
+const WHATSAPP_NUMBER = "2348052776921";
 const IMG = (name) => `assets/images/${name}`;
 
 // ----- Menu Data -----
 const MENU = [
-  // Native Soups
-  { id: "bitter-leaf-soup", name: "Bitter Leaf Soup", category: "Native Soups", price: 4500, desc: "Slow-simmered bitter leaf soup with assorted meat, stockfish and pounded yam.", img: IMG("bitter-leaf-soup.jpeg"), tag: "Chef's Special" },
-  { id: "egusi-soup", name: "Egusi Soup", category: "Native Soups", price: 4500, desc: "Rich melon seed soup with spinach, assorted meat and smoked fish.", icon: "🍲" },
-  { id: "ogbono-soup", name: "Ogbono Soup", category: "Native Soups", price: 4000, desc: "Draw soup made from ground ogbono seeds, palm oil and fresh fish.", icon: "🥣" },
-  { id: "afang-soup", name: "Afang Soup", category: "Native Soups", price: 5000, desc: "Afang leaves and waterleaf simmered with periwinkle, beef and dry fish.", icon: "🌿" },
+  // Native Soups & Swallow
+  { id: "black-soup-starch", name: "Black Soup & Starch", category: "Native Soups & Swallow", price: 4500, desc: "Rich, dark draw soup simmered with assorted meat and stockfish, served with smooth starch.", img: IMG("black-soup-starch.jpg"), tag: "Chef's Special" },
+  { id: "amala-with-class", name: "Amala with Class", category: "Native Soups & Swallow", price: 4000, desc: "Soft amala paired with ewedu and gbegiri, plated the Mama Africa way — native food, dressed up.", img: IMG("amala-with-class.png"), tag: "Signature" },
+  { id: "bitter-leaf-soup", name: "Bitter Leaf Soup", category: "Native Soups & Swallow", price: 4500, desc: "Slow-simmered bitter leaf soup with assorted meat, stockfish and your choice of swallow.", img: IMG("bitter-leaf-soup.jpeg"), tag: "Chef's Special" },
+  { id: "banga-soup", name: "Banga Soup", category: "Native Soups & Swallow", price: 4500, desc: "Palm fruit soup simmered with assorted meat and fish, native spice blend.", img: IMG("banga-soup.webp") },
+  { id: "egusi-fufu", name: "Egusi & Fufu", category: "Native Soups & Swallow", price: 4500, desc: "Rich melon seed soup with assorted meat and smoked fish, served with soft fufu.", img: IMG("egusi-fufu.webp") },
+  { id: "ogbono-soup", name: "Ogbono Soup", category: "Native Soups & Swallow", price: 4000, desc: "Draw soup made from ground ogbono seeds, palm oil and fresh fish.", img: IMG("ogbono-soup.webp") },
+  { id: "efo-riro", name: "Efo Riro", category: "Native Soups & Swallow", price: 4000, desc: "Fresh spinach stew cooked in palm oil with assorted meat and smoked fish.", img: IMG("efo-riro.webp") },
+  { id: "seafood-okra", name: "Seafood Okra", category: "Native Soups & Swallow", price: 5500, desc: "Draw okra soup loaded with prawns, crayfish and assorted seafood.", img: IMG("seafood-okra.webp") },
+
+  // Bush Meat & Peppersoup Specials
+  { id: "bush-meat-soup", name: "Bush Meat Soup", category: "Bush Meat & Peppersoup Specials", price: 6500, desc: "Peppery, native-style bush meat soup — our house favourite for a proper bukka experience.", img: IMG("bush-meat-soup.webp"), tag: "House Favourite" },
+  { id: "assorted-meat-stew", name: "Assorted Meat Stew", category: "Bush Meat & Peppersoup Specials", price: 5500, desc: "Point-and-kill style assorted meat in rich tomato pepper sauce over sautéed greens.", img: IMG("assorted-meat-stew.jpg") },
+  { id: "asun-mixed-grill", name: "Asun & Mixed Grill Platter", category: "Bush Meat & Peppersoup Specials", price: 6000, desc: "Smoky, spiced goat meat asun with mixed grills — the perfect plate for a cold bottle in hand.", img: IMG("mixed-grill-platter.webp"), tag: "Bar Favourite" },
+  { id: "peppersoup", name: "Goat Meat Peppersoup", category: "Bush Meat & Peppersoup Specials", price: 4500, desc: "Fiery, aromatic peppersoup — the ultimate late-night bush bar warm-up.", icon: "🌶️" },
 
   // Delicacies & Small Chops
   { id: "nkwobi", name: "Nkwobi", category: "Delicacies & Small Chops", price: 6000, desc: "Spiced cow foot delicacy in a creamy palm-oil sauce, garnished with utazi.", img: IMG("nkwobi.jpeg"), tag: "Best Seller" },
   { id: "abacha", name: "Abacha (African Salad)", category: "Delicacies & Small Chops", price: 3500, desc: "Shredded cassava tossed in ugba, ponmo, garden egg and grilled fish.", img: IMG("abacha.jpeg") },
-  { id: "isi-ewu", name: "Isi Ewu", category: "Delicacies & Small Chops", price: 8000, desc: "Traditional spiced goat head delicacy, slow-cooked and richly seasoned.", icon: "🐐" },
-  { id: "small-chops", name: "Small Chops Platter", category: "Delicacies & Small Chops", price: 5500, desc: "Spring rolls, puff puff, samosa and peppered snails on one platter.", icon: "🍢" },
+  { id: "small-chops", name: "Small Chops Platter", category: "Delicacies & Small Chops", price: 5500, desc: "Spring rolls, puff puff, samosa and peppered snacks on one platter — great for sharing at the bar.", img: IMG("small-chops.jpg") },
 
-  // Grills & Barbecue
-  { id: "fish-barbecue", name: "Fish Barbecue", category: "Grills & Barbecue", price: 7000, desc: "Whole grilled fish with chips, fried plantain, fresh salad and pepper sauce.", img: IMG("fish-barbecue.jpeg"), tag: "Popular" },
-  { id: "suya", name: "Suya Platter", category: "Grills & Barbecue", price: 4000, desc: "Spicy grilled beef skewers coated in yaji spice, served with onions and cabbage.", icon: "🍢" },
-  { id: "grilled-chicken", name: "Grilled Chicken", category: "Grills & Barbecue", price: 5500, desc: "Charcoal-grilled chicken marinated in native spice blend, served with plantain.", icon: "🍗" },
-  { id: "peppered-goat", name: "Peppered Goat Meat", category: "Grills & Barbecue", price: 6500, desc: "Tender goat meat tossed in a fiery pepper sauce with onions and bell peppers.", icon: "🌶️" },
+  // Grills & Bush Bar Specials
+  { id: "grilled-titus-chips", name: "Grilled Titus & Chips", category: "Grills & Bush Bar Specials", price: 6500, desc: "Our special — whole grilled Titus fish, seasoned and charred, served with golden chips.", img: IMG("grilled-titus-fish.jpg"), tag: "Our Special" },
+  { id: "fish-barbecue", name: "Fish Barbecue", category: "Grills & Bush Bar Specials", price: 7000, desc: "Whole grilled fish with chips, fried plantain, fresh salad and pepper sauce.", img: IMG("fish-barbecue.jpeg"), tag: "Popular" },
+  { id: "grilled-catfish", name: "Grilled Catfish", category: "Grills & Bush Bar Specials", price: 7000, desc: "Charcoal-grilled catfish in native pepper marinade, smoky and full-flavoured.", img: IMG("grilled-catfish.webp") },
+  { id: "suya-kebab", name: "Suya & Kebab Grills", category: "Grills & Bush Bar Specials", price: 4000, desc: "Spicy grilled beef skewers coated in yaji spice, served with onions and cabbage.", img: IMG("suya-kebab-grills.jpg") },
+  { id: "lamb-chops", name: "Lamb Chops", category: "Grills & Bush Bar Specials", price: 8000, desc: "Char-grilled lamb chops, well-seasoned and juicy.", img: IMG("lamb-chops.png") },
+  { id: "grilled-shrimps", name: "Grilled Shrimps", category: "Grills & Bush Bar Specials", price: 6500, desc: "Butter-garlic grilled shrimps, a favourite match-night small plate.", img: IMG("grilled-shrimps.png") },
 
-  // Rice & Porridge
-  { id: "native-rice", name: "Native Rice", category: "Rice & Porridge", price: 3500, desc: "Nigerian native jollof rice cooked with scent leaf, dried fish and ponmo.", img: IMG("native-rice.jpeg"), tag: "Chef's Special" },
-  { id: "yam-porridge", name: "Yam Porridge (Asaro)", category: "Rice & Porridge", price: 3000, desc: "Soft yam pottage cooked in palm oil sauce with fish and ugu leaves.", img: IMG("yam-porridge.jpeg") },
-  { id: "ofada-rice", name: "Ofada Rice & Ayamase", category: "Rice & Porridge", price: 4500, desc: "Local ofada rice served with spicy green pepper ayamase sauce and assorted meat.", icon: "🍛" },
-  { id: "jollof-rice", name: "Jollof Rice", category: "Rice & Porridge", price: 2500, desc: "Smoky party-style jollof rice, served with fried plantain.", icon: "🍚" },
+  // Rice & Sides
+  { id: "jollof-rice", name: "Party Jollof Rice", category: "Rice & Sides", price: 2500, desc: "Smoky party-style jollof rice, served with fried plantain.", img: IMG("jollof-rice.jpg") },
+  { id: "jollof-chicken-plantain", name: "Jollof, Chicken & Plantain", category: "Rice & Sides", price: 4500, desc: "Classic jollof rice with grilled pepper chicken and sweet fried plantain.", img: IMG("jollof-chicken-plantain.jpg"), tag: "Popular" },
+  { id: "native-rice", name: "Native Rice", category: "Rice & Sides", price: 3500, desc: "Nigerian native jollof rice cooked with scent leaf, dried fish and ponmo.", img: IMG("native-rice.jpeg") },
+  { id: "yam-porridge", name: "Yam Porridge (Asaro)", category: "Rice & Sides", price: 3000, desc: "Soft yam pottage cooked in palm oil sauce with fish and ugu leaves.", img: IMG("yam-porridge.jpeg") },
+  { id: "combo-plate", name: "Mama Africa Combo Plate", category: "Rice & Sides", price: 5500, desc: "A generous mix of rice, stew, meat and sides — a full taste of the menu on one plate.", img: IMG("nigerian-food-combo.jpg") },
 ];
 
 const DRINKS = [
   { id: "chapman", name: "Chapman", price: 2500, icon: "🍹" },
   { id: "palm-wine", name: "Palm Wine (Calabash)", price: 3000, icon: "🥥" },
-  { id: "chilled-malt", name: "Chilled Beer / Malt", price: 1500, icon: "🍺" },
+  { id: "chilled-beer", name: "Chilled Beer / Malt", price: 1500, icon: "🍺" },
   { id: "signature-cocktail", name: "Signature Cocktails", price: 4000, icon: "🍸" },
 ];
 
+// ----- Bakery: Mama Africa Bread -----
+const BAKERY = [
+  { id: "sardine-bread", name: "Special Sardine Bread", price: 3500, desc: "Our signature soft loaf, packed with sardine — sliced or unsliced, baked fresh daily.", icon: "🍞", tag: "Signature" },
+  { id: "meat-pie", name: "Nigerian Meat Pie", price: 800, desc: "Flaky, golden pastry stuffed with seasoned minced meat and potatoes.", img: IMG("nigerian-meat-pie.webp") },
+  { id: "french-meat-pie", name: "French Meat Pie", price: 1000, desc: "A buttery, French-style twist on the classic Nigerian meat pie.", img: IMG("french-meat-pie.webp") },
+  { id: "puff-puff", name: "Puff Puff", price: 1500, desc: "Soft, sweet, deep-fried dough balls — a bukka classic.", img: IMG("puff-puff.jpg") },
+  { id: "cakes", name: "Celebration Cakes", price: 15000, desc: "Custom-baked cakes for birthdays, owambe and every celebration.", icon: "🎂" },
+  { id: "sliced-pastries", name: "Sliced & Unsliced Pastries", price: 2500, desc: "Fresh bread, sliced or unsliced, straight from the Mama Africa bakery oven.", icon: "🥖" },
+];
+
 const GALLERY = [
+  { img: IMG("bush-meat-soup.webp"), label: "Bush Meat Soup" },
+  { img: IMG("black-soup-starch.jpg"), label: "Black Soup & Starch" },
+  { img: IMG("mixed-grill-platter.webp"), label: "Bush Bar Grill Night" },
+  { icon: "⚽", label: "Match Day at the Bar" },
+  { img: IMG("jollof-chicken-plantain.jpg"), label: "Jollof & Grilled Chicken" },
   { img: IMG("nkwobi.jpeg"), label: "Signature Nkwobi" },
-  { img: IMG("fish-barbecue.jpeg"), label: "Fish Barbecue Night" },
-  { img: IMG("bitter-leaf-soup.jpeg"), label: "Native Soup Pot" },
-  { icon: "🎉", label: "Private Celebrations" },
-  { img: IMG("native-rice.jpeg"), label: "Native Rice Feast" },
-  { icon: "🏢", label: "Corporate Catering" },
-  { img: IMG("abacha.jpeg"), label: "Abacha Plating" },
-  { icon: "🥂", label: "Restaurant Ambience" },
+  { img: IMG("amala.webp"), label: "Amala Swallow" },
+  { img: IMG("nigeria-food-map.webp"), label: "A Taste of Nigeria" },
 ];
 
 const TESTIMONIALS = [
-  { name: "Chiamaka O.", role: "Abuja, FCT", quote: "The most authentic Nkwobi I've had outside my grandmother's kitchen. Nlacha-Aka is now our family's go-to for every celebration." },
-  { name: "Yusuf B.", role: "Garki, Abuja", quote: "Their fish barbecue is unmatched — smoky, perfectly seasoned, and the pepper sauce is addictive. Service is warm and fast too." },
-  { name: "Ifeoma A.", role: "Wuse II, Abuja", quote: "We hosted our office end-of-year dinner here. The catering team was professional and the native rice was the star of the night." },
-  { name: "Emeka N.", role: "Garki, Abuja", quote: "Palm wine straight from the calabash, bitter leaf soup that tastes like home — this place gets Nigerian native food exactly right." },
+  { name: "Chidinma O.", role: "Ajah, Lagos", quote: "Mama Africa's black soup and starch takes me straight back home. And catching the match on their screens with a cold beer? Unmatched." },
+  { name: "Tunde A.", role: "Ogombo, Lagos", quote: "The asun and mixed grill platter is my go-to for match nights. Smoky, spicy, and the vibe at the bar is always right." },
+  { name: "Ngozi E.", role: "Lekki, Lagos", quote: "Amala with class lives up to the name — beautifully plated but still tastes exactly like home cooking." },
+  { name: "Emeka B.", role: "Ajah, Lagos", quote: "Grilled Titus and chips is criminally good. This is now our regular weekend hangout spot." },
 ];
 
 // ----- Cart State -----
-let cart = JSON.parse(localStorage.getItem("nlacha_cart") || "[]");
+let cart = JSON.parse(localStorage.getItem("mamaafrica_cart") || "[]");
 let orderType = "Pickup";
 
 const naira = (n) => `₦${n.toLocaleString("en-NG")}`;
 
 function saveCart() {
-  localStorage.setItem("nlacha_cart", JSON.stringify(cart));
+  localStorage.setItem("mamaafrica_cart", JSON.stringify(cart));
   renderCart();
 }
 
 function addToCart(id) {
-  const item = [...MENU, ...DRINKS].find((m) => m.id === id);
+  const item = [...MENU, ...DRINKS, ...BAKERY].find((m) => m.id === id);
   if (!item) return;
   const existing = cart.find((c) => c.id === id);
   if (existing) existing.qty += 1;
@@ -109,7 +131,7 @@ function showToast(msg) {
 }
 
 // ----- Render: Menu -----
-const CATEGORIES = ["All", "Native Soups", "Delicacies & Small Chops", "Grills & Barbecue", "Rice & Porridge"];
+const CATEGORIES = ["All", "Native Soups & Swallow", "Bush Meat & Peppersoup Specials", "Delicacies & Small Chops", "Grills & Bush Bar Specials", "Rice & Sides"];
 let activeCategory = "All";
 
 function dishCardHTML(item) {
@@ -171,6 +193,37 @@ function barCardHTML(item) {
 function renderBarGrid() {
   const grid = document.getElementById("bar-grid");
   grid.innerHTML = DRINKS.map(barCardHTML).join("");
+  bindAddButtons(grid);
+}
+
+// ----- Render: Bakery -----
+function bakeryCardHTML(item) {
+  const media = item.img
+    ? `<img src="${item.img}" alt="${item.name}" loading="lazy" />`
+    : `<div class="placeholder-art"><span class="p-icon">${item.icon || "🍞"}</span><span class="p-label">${item.name}</span></div>`;
+  return `
+  <div class="dish-card">
+    <div class="dish-img-wrap">
+      ${item.tag ? `<span class="tag-badge">${item.tag}</span>` : ""}
+      ${media}
+    </div>
+    <div class="p-5">
+      <div class="flex items-start justify-between gap-3 mb-2">
+        <h3 class="font-display font-bold text-lg leading-snug">${item.name}</h3>
+        <span class="font-display font-bold text-terracotta-light whitespace-nowrap">${naira(item.price)}</span>
+      </div>
+      <p class="text-sm text-cream/60 leading-relaxed mb-4">${item.desc}</p>
+      <button data-add="${item.id}" class="add-btn w-full flex items-center justify-center gap-2 bg-terracotta/15 hover:bg-terracotta text-terracotta-light hover:text-cream font-bold text-sm py-2.5 rounded-full transition">
+        <span>+</span> Add to Order
+      </button>
+    </div>
+  </div>`;
+}
+
+function renderBakeryGrid() {
+  const grid = document.getElementById("bakery-grid");
+  if (!grid) return;
+  grid.innerHTML = BAKERY.map(bakeryCardHTML).join("");
   bindAddButtons(grid);
 }
 
@@ -272,7 +325,7 @@ function renderCart() {
 
   itemsWrap.innerHTML = cart
     .map((c) => {
-      const menuItem = [...MENU, ...DRINKS].find((m) => m.id === c.id);
+      const menuItem = [...MENU, ...DRINKS, ...BAKERY].find((m) => m.id === c.id);
       const media = menuItem && menuItem.img
         ? `<img src="${menuItem.img}" alt="${c.name}" />`
         : `<div class="placeholder-art !aspect-auto"><span class="p-icon text-xl">${(menuItem && menuItem.icon) || "🍽️"}</span></div>`;
@@ -302,7 +355,7 @@ function renderCart() {
 function updateCheckoutLink() {
   const lines = cart.map((c) => `• ${c.name} x${c.qty} — ${naira(c.price * c.qty)}`).join("%0A");
   const msg =
-    `Hello Nlacha-Aka! I'd like to place a *${orderType}* order:%0A%0A${lines}%0A%0A` +
+    `Hello Mama Africa Bukka Hub! I'd like to place a *${orderType}* order:%0A%0A${lines}%0A%0A` +
     `*Total: ${naira(cartTotal())}*%0A%0APlease confirm availability. Thank you!`;
   document.getElementById("cart-checkout").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
@@ -340,7 +393,7 @@ reservationForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(reservationForm).entries());
   const msg =
-    `Hello Nlacha-Aka! I'd like to reserve a table:%0A%0A` +
+    `Hello Mama Africa Bukka Hub! I'd like to reserve a table:%0A%0A` +
     `*Name:* ${data.name}%0A*Phone:* ${data.phone}%0A*Guests:* ${data.guests}%0A` +
     `*Date:* ${data.date}%0A*Time:* ${data.time}%0A` +
     (data.notes ? `*Special Request:* ${data.notes}%0A` : "") +
@@ -405,6 +458,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 renderFilters();
 renderMenuGrid();
 renderBarGrid();
+renderBakeryGrid();
 renderGallery();
 renderTestimonials();
 renderCart();
