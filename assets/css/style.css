@@ -38,7 +38,7 @@ body { overflow-x: hidden; }
 .hero-parallax {
   background-image:
     linear-gradient(rgba(43,34,29,0.15), rgba(43,34,29,0.5)),
-    url('../images/mixed-grill-platter.webp');
+    url('https://images.unsplash.com/photo-1665400808116-f0e6339b7e9a?q=80&w=2000&auto=format&fit=crop');
   background-size: cover;
   background-position: center 65%;
   background-attachment: fixed;
